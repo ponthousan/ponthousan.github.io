@@ -41,7 +41,7 @@ module.exports = "<app-billgenerate></app-billgenerate>\n\n<router-outlet></rout
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"form-input-field\">\n    <div class=\"form-group\">\n      <label for=\"serialno\">Serial No</label>\n      <input type=\"text\" name=\"serialno\" class=\"form-control\" value=\"\" [(ngModel)]=\"serialno\" />\n    </div>\n    <div class=\"form-group\">\n      <label for=\"shopname\">Shop Name</label>\n      <select class=\"form-control\" (change)=\"getShopSelect($event)\">\n        <option>Please select shop name</option>\n        <option *ngFor=\"let shopList of shopDetails\" value=\"{{shopList.gstno}}\">{{shopList.name}}</option>\n      </select>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"billdate\">Bill Date</label>\n        <br />\n        <p-calendar [(ngModel)]=\"billdate\" dateFormat=\"dd.mm.yy\"></p-calendar>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"noofbag\">No Of Bag</label>\n      <input type=\"text\" name=\"noofbag\" class=\"form-control\" value=\"\" [(ngModel)]=\"noofbag\" />\n    </div>\n    <div class=\"form-group\">\n      <label for=\"unit\">Unit</label>\n      <input type=\"text\" name=\"unit\" class=\"form-control\" value=\"\" [(ngModel)]=\"unit\" />\n    </div>\n    <div class=\"form-group\">\n      <label for=\"rate\">Rate</label>\n      <input type=\"text\" name=\"rate\" class=\"form-control\" value=\"\" [(ngModel)]=\"rate\" />\n    </div>\n    <div class=\"form-group\">\n      <button type=\"button\" class=\"btn btn-primary\" (click)=\"exportAsPDF();\">Download Pdf</button>\n    </div>\n  </div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"form-input-field\">\n    <div class=\"form-group\">\n      <label for=\"serialno\">Bill No</label>\n      <input type=\"text\" name=\"serialno\" class=\"form-control\" value=\"\" [(ngModel)]=\"serialno\" />\n    </div>\n    <div class=\"form-group\">\n      <label for=\"shopname\">Shop Name</label>\n      <select class=\"form-control\" (change)=\"getShopSelect($event)\">\n        <option>Please select shop name</option>\n        <option *ngFor=\"let shopList of shopDetails\" value=\"{{shopList.gstno}}\">{{shopList.name}}</option>\n      </select>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"modetransport\">Mode of Transport</label>\n      <select class=\"form-control\" (change)=\"getModeTransport($event)\">\n        <option>Please Select Mode Of Transport</option>\n        <option value=\"JEYAVILAS\">JEYAVILAS</option>\n        <option value=\"ETC\">ETC</option>\n      </select>\n    </div>\n    <div class=\"form-group\">\n        <label for=\"billdate\">Bill Date</label>\n        <br />\n        <p-calendar [(ngModel)]=\"billdate\" dateFormat=\"dd.mm.yy\"></p-calendar>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"noofbag\">No Of Bag</label>\n      <input type=\"text\" name=\"noofbag\" class=\"form-control\" value=\"\" [(ngModel)]=\"noofbag\" />\n    </div>\n    <div class=\"form-group\">\n      <label for=\"unit\">Unit</label>\n      <input type=\"text\" name=\"unit\" class=\"form-control\" value=\"\" [(ngModel)]=\"unit\" />\n    </div>\n    <div class=\"form-group\">\n      <label for=\"rate\">Rate</label>\n      <input type=\"text\" name=\"rate\" class=\"form-control\" value=\"\" [(ngModel)]=\"rate\" />\n    </div>\n    <div class=\"form-group\">\n      <button type=\"button\" class=\"btn btn-primary\" (click)=\"exportAsPDF('open');\">Open Pdf</button>&nbsp;&nbsp;\n      <button type=\"button\" class=\"btn btn-primary\" (click)=\"exportAsPDF('download');\">Download Pdf</button>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -132,11 +132,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm2015/animations.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/calendar */ "./node_modules/primeng/fesm2015/primeng-calendar.js");
-/* harmony import */ var primeng_autocomplete__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/autocomplete */ "./node_modules/primeng/fesm2015/primeng-autocomplete.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _billgenerate_billgenerate_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./billgenerate/billgenerate.component */ "./src/app/billgenerate/billgenerate.component.ts");
+/* harmony import */ var _pipe_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pipe/number-to-words.pipe */ "./src/app/pipe/number-to-words.pipe.ts");
+/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/calendar */ "./node_modules/primeng/fesm2015/primeng-calendar.js");
+/* harmony import */ var primeng_autocomplete__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primeng/autocomplete */ "./node_modules/primeng/fesm2015/primeng-autocomplete.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _billgenerate_billgenerate_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./billgenerate/billgenerate.component */ "./src/app/billgenerate/billgenerate.component.ts");
+
 
 
 
@@ -152,19 +154,19 @@ let AppModule = class AppModule {
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"],
-            _billgenerate_billgenerate_component__WEBPACK_IMPORTED_MODULE_9__["BillgenerateComponent"]
+            _app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"],
+            _billgenerate_billgenerate_component__WEBPACK_IMPORTED_MODULE_10__["BillgenerateComponent"],
+            _pipe_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_5__["NumberToWordsPipe"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"],
-            primeng_calendar__WEBPACK_IMPORTED_MODULE_5__["CalendarModule"],
-            primeng_autocomplete__WEBPACK_IMPORTED_MODULE_6__["AutoCompleteModule"]
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"],
+            primeng_calendar__WEBPACK_IMPORTED_MODULE_6__["CalendarModule"],
+            primeng_autocomplete__WEBPACK_IMPORTED_MODULE_7__["AutoCompleteModule"]
         ],
-        providers: [],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_9__["AppComponent"]]
     })
 ], AppModule);
 
@@ -196,35 +198,109 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! pdfmake/build/pdfmake */ "./node_modules/pdfmake/build/pdfmake.js");
-/* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! pdfmake/build/vfs_fonts */ "./node_modules/pdfmake/build/vfs_fonts.js");
-/* harmony import */ var pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _pipe_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pipe/number-to-words.pipe */ "./src/app/pipe/number-to-words.pipe.ts");
+/* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! pdfmake/build/pdfmake */ "./node_modules/pdfmake/build/pdfmake.js");
+/* harmony import */ var pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! pdfmake/build/vfs_fonts */ "./node_modules/pdfmake/build/vfs_fonts.js");
+/* harmony import */ var pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
 
 
-pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_3___default.a.vfs = pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_4___default.a.pdfMake.vfs;
+
+pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_4___default.a.vfs = pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_5___default.a.pdfMake.vfs;
 let BillgenerateComponent = class BillgenerateComponent {
-    constructor(datePipe) {
+    constructor(datePipe, numberToWords) {
         this.datePipe = datePipe;
+        this.numberToWords = numberToWords;
         this.shopDetails = [];
         this.billdate = '';
         this.billNewdate = '';
+        this.billNewdateFile = '';
         this.shopname = [];
+        this.shopnameVal = [];
         this.shoppaddress = [];
         this.serialno = '';
         this.noofbag = '';
-        this.travels = '';
+        this.modeoftransport = '';
     }
     ngOnInit() {
         this.shopDetails = [
+            {
+                name: 'SUPREME FIREWORKS FACTORY',
+                gstno: '33AAJFS4494H1ZW',
+                address: `1668/O PKN ROAD,
+        SIVAKASI - 626189
+        State : TAMILNADU`
+            },
+            {
+                name: 'SUPREME FIREWORKS',
+                gstno: '33AARFS1664H1ZY',
+                address: `1668/O PKN ROAD,
+        SIVAKASI - 626189
+        State : TAMILNADU`
+            },
+            {
+                name: 'SUPREME PYROTECHNICS',
+                gstno: '33ABCFS6262M1ZW',
+                address: `1668/O PKN ROAD,
+        SIVAKASI - 626189
+        State : TAMILNADU`
+            },
+            {
+                name: 'SUPREME PYRO WORKS',
+                gstno: '33ABIFS6160J1ZZ',
+                address: `1668/O PKN ROAD,
+        SIVAKASI - 626189
+        State : TAMILNADU`
+            },
+            {
+                name: 'SATHEIS FIREWORKS INDUSTRIES',
+                gstno: '33AAJFS0756J1Z2',
+                address: `1668/O PKN ROAD,
+        SIVAKASI - 626189
+        State : TAMILNADU`
+            },
+            {
+                name: 'VASUGI FIREWORKS',
+                gstno: '33AAIFV6572A1Z9',
+                address: `1668/O PKN ROAD,
+        SIVAKASI - 626189
+        State : TAMILNADU`
+            },
+            {
+                name: 'THENMOZHI PYROTECHNICS',
+                gstno: '33AAGFT8476R1Z7',
+                address: `1668/O PKN ROAD,
+        SIVAKASI - 626189
+        State : TAMILNADU`
+            },
+            {
+                name: 'SURYA PYROTECHNIC',
+                gstno: '33ACZFS5992A1ZL',
+                address: `1668/O PKN ROAD,
+        SIVAKASI - 626189
+        State : TAMILNADU`
+            },
+            {
+                name: 'SUPREME FIREWORKS AND COMPANY',
+                gstno: '33ADRFS9582K1Z4',
+                address: `1668/O PKN ROAD,
+        SIVAKASI - 626189
+        State : TAMILNADU`
+            },
             {
                 name: 'VELAVAN MINI BAZAAR',
                 gstno: '33AAFFV1207M1Z9',
                 address: `162-C, P.K.S. ARUMUGAM ROAD,
         SIVAKASI - 626189
+        State : TAMILNADU`
+            },
+            {
+                name: 'DURGA FIREWORKS',
+                gstno: '33AABFD9193L1Z4',
+                address: `SIVAKASI - 626189
         State : TAMILNADU`
             }
         ];
@@ -233,10 +309,15 @@ let BillgenerateComponent = class BillgenerateComponent {
         this.gstnovalue = args.target.value;
         const getshop = this.shopDetails.find(s => s.gstno === this.gstnovalue);
         this.shopname = getshop.name;
+        this.shopnameVal = this.shopname;
         this.shoppaddress = getshop.address;
     }
-    exportAsPDF() {
+    getModeTransport(args) {
+        this.modeoftransport = args.target.value;
+    }
+    exportAsPDF(pdfOption) {
         this.billNewdate = this.datePipe.transform(this.billdate, 'dd.MM.y');
+        this.billNewdateFile = this.datePipe.transform(this.billdate, 'ddMMy');
         this.totalvalue = this.unit * this.rate;
         this.gstvaluefind = Math.round(((this.totalvalue * 5) / 100) / 2);
         const documentDefinition = {
@@ -309,7 +390,7 @@ let BillgenerateComponent = class BillgenerateComponent {
                                                     },
                                                     {
                                                         text: `
-                                Mode of Transport: JEYAVILAS
+                                Mode of Transport: ${this.modeoftransport}
                                 Veh. No ..............................
                                 DL & Time of Supply: ${this.billNewdate}
                                 Place of Supply ..............................`,
@@ -386,9 +467,8 @@ let BillgenerateComponent = class BillgenerateComponent {
                                                 [' ', '', '', '', '', '', '', '', ''],
                                                 [{
                                                         text: `
-                              Rupees:  THIRTY NINE THOUSAND
-                              THREE HUNDRED AND SEVENTY SIX ONLY
-                             `,
+                              Rupees:  ` + this.numberToWords.transform(Math.round(this.totalvalue + (2 * this.gstvaluefind)))
+                                                            .toUpperCase(),
                                                         colSpan: 6,
                                                         rowSpan: 3,
                                                     }, {
@@ -519,7 +599,7 @@ let BillgenerateComponent = class BillgenerateComponent {
                                                     }
                                                 ],
                                                 [{
-                                                        text: `PALNICHAMY TEXTILE
+                                                        text: `PALANICHAMY TEXTILE
                             ACC NO:  328150050800034
                             IFSC Code: TMBL0000328
                             TAMILNAD MERCANTILE BANK, SRIVILLIPUTHUR
@@ -597,19 +677,17 @@ let BillgenerateComponent = class BillgenerateComponent {
                 }
             }
         };
-        pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_3___default.a.createPdf(documentDefinition).open();
-        /*
-        const data = this.mainbill.nativeElement;
-        console.log(this.mainbill.nativeElement);
-        const pdf = new jsPDF('p', 'mm', 'a4');
-        pdf.fromHTML(data, 15, 15, {
-          width: 190
-        });
-        pdf.save("bill.pdf");*/
+        if (pdfOption === 'open') {
+            pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_4___default.a.createPdf(documentDefinition).open();
+        }
+        else {
+            pdfmake_build_pdfmake__WEBPACK_IMPORTED_MODULE_4___default.a.createPdf(documentDefinition).download(this.serialno + '.' + this.shopnameVal + '_' + this.billNewdateFile);
+        }
     }
 };
 BillgenerateComponent.ctorParameters = () => [
-    { type: _angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"] }
+    { type: _angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"] },
+    { type: _pipe_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_3__["NumberToWordsPipe"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('mainbill', { static: false })
@@ -618,10 +696,101 @@ BillgenerateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-billgenerate',
         template: __webpack_require__(/*! raw-loader!./billgenerate.component.html */ "./node_modules/raw-loader/index.js!./src/app/billgenerate/billgenerate.component.html"),
-        providers: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"]],
+        providers: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"], _pipe_number_to_words_pipe__WEBPACK_IMPORTED_MODULE_3__["NumberToWordsPipe"]],
         styles: [__webpack_require__(/*! ./billgenerate.component.scss */ "./src/app/billgenerate/billgenerate.component.scss")]
     })
 ], BillgenerateComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pipe/number-to-words.pipe.ts":
+/*!**********************************************!*\
+  !*** ./src/app/pipe/number-to-words.pipe.ts ***!
+  \**********************************************/
+/*! exports provided: NumberToWordsPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NumberToWordsPipe", function() { return NumberToWordsPipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let NumberToWordsPipe = class NumberToWordsPipe {
+    constructor() {
+        this.a = [
+            '',
+            'one ',
+            'two ',
+            'three ',
+            'four ',
+            'five ',
+            'six ',
+            'seven ',
+            'eight ',
+            'nine ',
+            'ten ',
+            'eleven ',
+            'twelve ',
+            'thirteen ',
+            'fourteen ',
+            'fifteen ',
+            'sixteen ',
+            'seventeen ',
+            'eighteen ',
+            'nineteen '
+        ];
+        this.b = [
+            '',
+            '',
+            'twenty',
+            'thirty',
+            'forty',
+            'fifty',
+            'sixty',
+            'seventy',
+            'eighty',
+            'ninety'
+        ];
+    }
+    transform(value, args) {
+        if (value) {
+            let num = Number(value);
+            if (num) {
+                if ((num = num.toString()).length > 9) {
+                    return 'We are not the Iron Bank, you can lower down the stakes :)';
+                }
+                const n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+                if (!n) {
+                    return '';
+                }
+                let str = '';
+                str += (Number(n[1]) !== 0) ? (this.a[Number(n[1])] || this.b[n[1][0]] + ' ' + this.a[n[1][1]]) + 'crore ' : '';
+                str += (Number(n[2]) !== 0) ? (this.a[Number(n[2])] || this.b[n[2][0]] + ' ' + this.a[n[2][1]]) + 'lakh ' : '';
+                str += (Number(n[3]) !== 0) ? (this.a[Number(n[3])] || this.b[n[3][0]] + ' ' + this.a[n[3][1]]) + 'thousand ' : '';
+                str += (Number(n[4]) !== 0) ? (this.a[Number(n[4])] || this.b[n[4][0]] + ' ' + this.a[n[4][1]]) + 'hundred ' : '';
+                str += (Number(n[5]) !== 0) ? ((str !== '') ? 'and ' : '') +
+                    (this.a[Number(n[5])] || this.b[n[5][0]] + ' ' +
+                        this.a[n[5][1]]) + 'only' : '';
+                return str;
+            }
+            else {
+                return '';
+            }
+        }
+        else {
+            return '';
+        }
+    }
+};
+NumberToWordsPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+        name: 'numberToWords'
+    })
+], NumberToWordsPipe);
 
 
 

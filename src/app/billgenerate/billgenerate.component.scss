@@ -1,0 +1,87 @@
+.form-input-field {
+  width: 850px;
+  border: 1px solid #000;
+  padding: 25px;
+  min-height: 150px;
+  font-size: 15px;
+  margin: 0px auto;
+}
+.main-panel {
+  width: 850px;
+  border: 1px solid #000;
+  padding: 25px;
+  min-height: 150px;
+  font-size: 15px;
+  margin: 0px auto;
+  .top-row {
+    height: 50px;
+  }
+  .mobile-number {
+    text-align: right;
+  }
+  .address {
+    text-align: center;
+    .textile-name {
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+  .invoice-bill {
+    height: 22px;
+    .serial-no {
+      width: 360px;
+    }
+    .invoice-name {
+      background-color: #000;
+      color: #fff;
+    }
+  }
+  .main-content {
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    line-height: 30px;
+    .address-left {
+      border-right: 1px solid #000;
+      .details-receiver {
+        text-align: center;
+      }
+    }
+    .address-right {
+      margin-top: 20px;
+    }
+  }
+  .detailed-price {
+    tr {
+      text-align: center;
+      th {
+        border: 1px solid #000;
+        left: 5px;
+      }
+      td {
+        margin-left: 5px;
+        height: 30px;
+        border: 1px solid #000;
+      }
+      .left-align {
+        text-align: left;
+      }
+      .right-align {
+        text-align: right;
+      }
+    }
+  }
+  .our-address {
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    line-height: 30px;
+    .our-address-right {
+      margin-top: 5px;
+      .authorized {
+        margin-top: 60px;
+      }
+    }
+  }
+
+}
