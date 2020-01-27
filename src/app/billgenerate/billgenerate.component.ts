@@ -275,7 +275,7 @@ export class BillgenerateComponent implements OnInit {
                               Rupees:  ` + this.numberToWords.transform(Math.round(this.totalvalue + (2 * this.gstvaluefind)))
                               .toUpperCase(),
                               colSpan: 6,
-                              rowSpan: 3,
+                              rowSpan: 4,
                             }, {
                               text: ''
                             }, {
@@ -482,7 +482,7 @@ export class BillgenerateComponent implements OnInit {
       }
     }
 };
-  if(pdfOption === 'open') {
+  if (pdfOption === 'open') {
     pdfMake.createPdf(documentDefinition).open();
   } else {
     pdfMake.createPdf(documentDefinition).download(this.serialno + '.' + this.shopnameVal + '_' + this.billNewdateFile);
