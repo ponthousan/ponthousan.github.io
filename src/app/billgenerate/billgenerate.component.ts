@@ -253,35 +253,41 @@ export class BillgenerateComponent implements OnInit {
                             }],
                             [{
                               text: `1`,
+                              margin: [5, 5, 5, 5]
                             },
                             {
                               text: `CORDED COTTON CONE`,
+                              margin: [5, 5, 5, 5]
                             },
                             {
                               text: `5205`,
+                              margin: [5, 5, 5, 5]
                             },
                             {
                               text: this.noofbag,
+                              margin: [5, 5, 5, 5]
                             },
                             {
                               text: ` `,
                             },
                             {
                               text: this.unit,
+                              margin: [5, 5, 5, 5]
                             },
                             {
                               text: this.rate,
+                              margin: [5, 5, 5, 5]
                             },
                             {
                               text: Math.round(this.totalvalue),
-                            }, { text: '00' } ],
-                            [' ', '', '', '', '', '', '', '', ''],
-                            [' ', '', '', '', '', '', '', '', ''],
-                            [' ', '', '', '', '', '', '', '', ''],
-                            [' ', '', '', '', '', '', '', '', ''],
-                            [' ', '', '', '', '', '', '', '', ''],
-                            [' ', '', '', '', '', '', '', '', ''],
-                            [' ', '', '', '', '', '', '', '', ''],
+                              margin: [5, 5, 5, 5]
+                            }, { text: '00', margin: [5, 5, 5, 5] } ],
+                            [{text: ' ', margin: [5, 5, 5, 5]}, '', '', '', '', '', '', '', ''],
+                            [{text: ' ', margin: [5, 5, 5, 5]}, '', '', '', '', '', '', '', ''],
+                            [{text: ' ', margin: [5, 5, 5, 5]}, '', '', '', '', '', '', '', ''],
+                            [{text: ' ', margin: [5, 5, 5, 5]}, '', '', '', '', '', '', '', ''],
+                            [{text: ' ', margin: [5, 5, 5, 5]}, '', '', '', '', '', '', '', ''],
+                            [{text: ' ', margin: [5, 5, 5, 5]}, '', '', '', '', '', '', '', ''],
                             [{
                               text: `
                               Rupees:  ` + this.numberToWords.transform(Math.round(this.totalvalue + (2 * this.gstvaluefind)))
