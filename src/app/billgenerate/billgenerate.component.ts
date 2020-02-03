@@ -175,10 +175,11 @@ export class BillgenerateComponent implements OnInit {
                         table: {
                           body: [
                             [{
-                                text: `Details of Receiver (Billed to) details of Consignee Shipped to
+                                text: `   Details of Receiver (Billed to) details of Consignee Shipped to
                                 Name: ${this.shopname}
                                 Address: ${this.shoppaddress}
                                 GSTIN: ${this.gstnovalue}`,
+                                lineHeight: 2,
                                 colSpan: 5
                               },
                               {
@@ -199,7 +200,8 @@ export class BillgenerateComponent implements OnInit {
                                 Veh. No ..............................
                                 DL & Time of Supply: ${this.billNewdate}
                                 Place of Supply ..............................`,
-                                colSpan: 4
+                                colSpan: 4,
+                                lineHeight: 2,
                               },
                               {
                                 text: ''
@@ -213,28 +215,38 @@ export class BillgenerateComponent implements OnInit {
                             ],
                             [{
                               text: `S. No`,
+                              alignment: 'center'
                             },
                             {
                               text: `Description of Goods`,
+                              alignment: 'center'
                             },
                             {
-                              text: `HSN Code`,
+                              text: `HSN
+                              Code`,
+                              alignment: 'center'
                             },
                             {
-                              text: `No.of Packages`,
+                              text: `No.of
+                              Packages`,
+                              alignment: 'center'
                             },
                             {
                               text: `Qty`,
+                              alignment: 'center'
                             },
                             {
                               text: `Unit`,
+                              alignment: 'center'
                             },
                             {
                               text: `Rate`,
+                              alignment: 'center'
                             },
                             {
                               text: `Total Taxable Value`,
-                              colSpan: 2
+                              colSpan: 2,
+                              alignment: 'center'
                             },
                             {
                               text: ''
@@ -274,7 +286,7 @@ export class BillgenerateComponent implements OnInit {
                               text: `
                               Rupees:  ` + this.numberToWords.transform(Math.round(this.totalvalue + (2 * this.gstvaluefind)))
                               .toUpperCase(),
-                              colSpan: 6,
+                              colSpan: 5,
                               rowSpan: 4,
                             }, {
                               text: ''
@@ -285,17 +297,21 @@ export class BillgenerateComponent implements OnInit {
                             }, {
                               text: ''
                             }, {
+                              text: 'Total',
+                              colSpan: 2,
+                              alignment: 'right'
+                            }, {
                               text: ''
                             }, {
-                              text: 'Total'
+                              text: Math.round(this.totalvalue),
+                              alignment: 'right'
                             }, {
-                              text: Math.round(this.totalvalue)
-                            }, {
-                              text: '00'
+                              text: '00',
+                              alignment: 'right'
                             }],
                             [{
                               text: '',
-                              colSpan: 6
+                              colSpan: 5
                             }, {
                               text: ''
                             }, {
@@ -305,17 +321,21 @@ export class BillgenerateComponent implements OnInit {
                             }, {
                               text: ''
                             }, {
+                              text: 'CGST 2.5 %',
+                              colSpan: 2,
+                              alignment: 'right'
+                            }, {
                               text: ''
                             }, {
-                              text: 'CGST 2.5 %'
+                              text: this.gstvaluefind,
+                              alignment: 'right'
                             }, {
-                              text: this.gstvaluefind
-                            }, {
-                              text: '00'
+                              text: '00',
+                              alignment: 'right'
                             }],
                             [{
                               text: '',
-                              colSpan: 6
+                              colSpan: 5
                             }, {
                               text: ''
                             }, {
@@ -325,18 +345,22 @@ export class BillgenerateComponent implements OnInit {
                             }, {
                               text: ''
                             }, {
+                              text: 'SGST 2.5 %',
+                              alignment: 'right',
+                              colSpan: 2
+                            }, {
                               text: ''
+                            },  {
+                              text: this.gstvaluefind,
+                              alignment: 'right'
                             }, {
-                              text: 'SGST 2.5 %'
-                            }, {
-                              text: this.gstvaluefind
-                            }, {
-                              text: '00'
+                              text: '00',
+                              alignment: 'right'
                             }],
                             [{
                               text: '',
-                              colSpan: 6
-                            }, {
+                              colSpan: 5
+                            },  {
                               text: ''
                             }, {
                               text: ''
@@ -345,9 +369,10 @@ export class BillgenerateComponent implements OnInit {
                             }, {
                               text: ''
                             }, {
-                              text: ''
+                              text: ' ',
+                              colSpan: 2,
                             }, {
-                              text: ' '
+                              text: ''
                             }, {
                               text: ''
                             }, {
@@ -355,7 +380,7 @@ export class BillgenerateComponent implements OnInit {
                             }],
                             [{
                               text: 'Eway Bill No:',
-                              colSpan: 6
+                              colSpan: 5
                             }, {
                               text: ''
                             }, {
@@ -365,13 +390,17 @@ export class BillgenerateComponent implements OnInit {
                             }, {
                               text: ''
                             }, {
+                              text: 'Invoice Total',
+                              alignment: 'right',
+                              colSpan: 2
+                            }, {
                               text: ''
                             }, {
-                              text: 'Invoice Total'
+                              text: Math.round(this.totalvalue + (2 * this.gstvaluefind)),
+                              alignment: 'right'
                             }, {
-                              text: Math.round(this.totalvalue + (2 * this.gstvaluefind))
-                            }, {
-                              text: '00'
+                              text: '00',
+                              alignment: 'right'
                             }],
                             [{
                               text: `Certified that the Particulars given above are true and correct`,
@@ -409,7 +438,8 @@ export class BillgenerateComponent implements OnInit {
                             IFSC Code: TMBL0000328
                             TAMILNAD MERCANTILE BANK, SRIVILLIPUTHUR
                             E & O.E.,`,
-                            colSpan: 5
+                            colSpan: 5,
+                            lineHeight: 2
                           },
                           {
                             text: ''
@@ -428,8 +458,12 @@ export class BillgenerateComponent implements OnInit {
 
 
 
-                                    Authorized Signatory`,
-                            colSpan: 4
+
+
+
+
+                            Authorized Signatory`,
+                            colSpan: 4,
                           },
                           {
                             text: ''
@@ -449,10 +483,10 @@ export class BillgenerateComponent implements OnInit {
             ]
         },
         layout: {
-          paddingLeft: (i, node) => 10,
-          paddingRight: (i, node) => 10,
-          paddingTop: (i, node) => 10,
-          paddingBottom: (i, node) => 10
+          paddingLeft: (i, node) => 5,
+          paddingRight: (i, node) => 5,
+          paddingTop: (i, node) => 5,
+          paddingBottom: (i, node) => 5,
       }
       },
     ],
@@ -485,7 +519,7 @@ export class BillgenerateComponent implements OnInit {
   if (pdfOption === 'open') {
     pdfMake.createPdf(documentDefinition).open();
   } else {
-    pdfMake.createPdf(documentDefinition).download(this.serialno + '.' + this.shopnameVal + '_' + this.billNewdateFile);
+    pdfMake.createPdf(documentDefinition).download(this.serialno + '.' + this.shopnameVal + '_' + this.billNewdateFile + '.pdf');
   }
   }
 }
