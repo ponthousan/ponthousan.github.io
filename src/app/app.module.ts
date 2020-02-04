@@ -11,12 +11,14 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BillgenerateComponent } from './billgenerate/billgenerate.component';
+import { ShopdetailsComponent } from './shopdetails/shopdetails.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BillgenerateComponent,
-    NumberToWordsPipe
+    NumberToWordsPipe,
+    ShopdetailsComponent
   ],
   imports: [
     BrowserModule,
