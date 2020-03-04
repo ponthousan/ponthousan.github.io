@@ -1,16 +1,24 @@
 <div class="container">
   <a [routerLink]="['/bill-generate']" class="pull-right">Bill Generate</a>
-  <div class="form-input-field">
-    <div class="form-group">
-      <label for="serialno">GST No</label>
-      <input type="text" name="gstno" class="form-control" value="" />
+  <form [formGroup]="shopDetailsForm" #form="ngForm" (ngSubmit)="shopDetailsForm.valid && addShopDetails()">
+    <div class="form-input-field">
+      <div class="form-group">
+        <label for="serialno">GST No</label>
+        <input type="text" name="gstno" class="form-control" formControlName="gstno" />
+        <div *ngIf="form.submitted && f.gstno.errors" class="text-danger">
+          <div *ngIf="f.gstno.errors.required">First Name is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="shopname">Shop Name</label>
+        <input type="text" name="shopname" class="form-control" formControlName="shopname" />
+        <div *ngIf="form.submitted && f.shopname.errors" class="text-danger">
+          <div *ngIf="f.shopname.errors.required">Shop Name is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Add Shop Details</button>
+      </div>
     </div>
-    <div class="form-group">
-      <label for="shopname">Shop Name</label>
-      <input type="text" name="shopname" class="form-control" value=""  />
-    </div>
-    <div class="form-group">
-      <button type="button" class="btn btn-primary" >Add Shop Details</button>
-    </div>
-  </div>
+  </form>
 </div>

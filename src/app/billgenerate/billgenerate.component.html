@@ -1,45 +1,88 @@
 <div class="container">
   <a [routerLink]="['/shop-details']" class="pull-right">Add Shop Deatils</a>
+  <form [formGroup]="billGenerateForm" #bform="ngForm" (submit)="billGenerateForm.valid && exportAsPDF('open');">
   <div class="form-input-field">
-    <div class="form-group">
-      <label for="serialno">Bill No</label>
-      <input type="text" name="serialno" class="form-control" value="" [(ngModel)]="serialno" />
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="serialno">Bill No</label>
+          <input type="text" name="serialno" class="form-control" value="" formControlName="serialno" />
+          <div *ngIf="bform.submitted && f.serialno.errors" class="text-danger">
+            <div *ngIf="f.serialno.errors.required">Serial No is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="shopname">Shop Name</label>
+          <select class="form-control" (change)="getShopSelect($event)" formControlName="shopname">
+            <option value="">Please select shop name</option>
+            <option *ngFor="let shopList of shopDetails" value="{{shopList.gstno}}">{{shopList.name}}</option>
+          </select>
+          <div *ngIf="bform.submitted && f.shopname.errors" class="text-danger">
+            <div *ngIf="f.shopname.errors.required">Shop Name is required</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="modetransport">Mode of Transport</label>
+          <select class="form-control" (change)="getModeTransport($event)" formControlName="modetransport">
+            <option value="">Please Select Mode Of Transport</option>
+            <option value="JEYAVILAS">JEYAVILAS</option>
+            <option value="ETC">ETC</option>
+          </select>
+          <div *ngIf="bform.submitted && f.modetransport.errors" class="text-danger">
+            <div *ngIf="f.modetransport.errors.required">Mode Of Transport is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="billdate">Bill Date</label>
+          <br />
+          <p-calendar formControlName="billdate" dateFormat="dd.mm.yy"></p-calendar>
+          <div *ngIf="bform.submitted && f.billdate.errors" class="text-danger">
+            <div *ngIf="f.billdate.errors.required">Mode Of Transport is required</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="noofbag">No Of Bag</label>
+          <input type="text" name="noofbag" class="form-control" value="" formControlName="noofbag" />
+          <div *ngIf="bform.submitted && f.noofbag.errors" class="text-danger">
+            <div *ngIf="f.noofbag.errors.required">Mode Of Transport is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="unit">Unit</label>
+          <input type="text" name="unit" class="form-control" value="" formControlName="unit" />
+          <div *ngIf="bform.submitted && f.unit.errors" class="text-danger">
+            <div *ngIf="f.unit.errors.required">Mode Of Transport is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="rate">Rate</label>
+          <input type="text" name="rate" class="form-control" value="" formControlName="rate" />
+          <div *ngIf="bform.submitted && f.rate.errors" class="text-danger">
+            <div *ngIf="f.rate.errors.required">Mode Of Transport is required</div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="form-group">
-      <label for="shopname">Shop Name</label>
-      <select class="form-control" (change)="getShopSelect($event)">
-        <option>Please select shop name</option>
-        <option *ngFor="let shopList of shopDetails" value="{{shopList.gstno}}">{{shopList.name}}</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="modetransport">Mode of Transport</label>
-      <select class="form-control" (change)="getModeTransport($event)">
-        <option>Please Select Mode Of Transport</option>
-        <option value="JEYAVILAS">JEYAVILAS</option>
-        <option value="ETC">ETC</option>
-      </select>
-    </div>
-    <div class="form-group">
-        <label for="billdate">Bill Date</label>
-        <br />
-        <p-calendar [(ngModel)]="billdate" dateFormat="dd.mm.yy"></p-calendar>
-    </div>
-    <div class="form-group">
-      <label for="noofbag">No Of Bag</label>
-      <input type="text" name="noofbag" class="form-control" value="" [(ngModel)]="noofbag" />
-    </div>
-    <div class="form-group">
-      <label for="unit">Unit</label>
-      <input type="text" name="unit" class="form-control" value="" [(ngModel)]="unit" />
-    </div>
-    <div class="form-group">
-      <label for="rate">Rate</label>
-      <input type="text" name="rate" class="form-control" value="" [(ngModel)]="rate" />
-    </div>
-    <div class="form-group">
-      <button type="button" class="btn btn-primary" (click)="exportAsPDF('open');">Open Pdf</button>&nbsp;&nbsp;
-      <button type="button" class="btn btn-primary" (click)="exportAsPDF('download');">Download Pdf</button>
+      <!-- <button type="submit" class="btn btn-primary" (submit)="billGenerateForm.valid && exportAsPDF('open');">Open Pdf</button>&nbsp;&nbsp; -->
+      <button type="submit" class="btn btn-primary">Download Pdf</button>
     </div>
   </div>
+  </form>
 </div>

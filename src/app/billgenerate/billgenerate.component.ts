@@ -1,7 +1,12 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 import { DatePipe } from '@angular/common';
 import { NumberToWordsPipe } from '../pipe/number-to-words.pipe';
 import { NgModule } from '@angular/core';
+
+
+
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
@@ -12,9 +17,12 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
   styleUrls: ['./billgenerate.component.scss'],
   providers: [DatePipe, NumberToWordsPipe]
 })
+
 export class BillgenerateComponent implements OnInit {
   @ViewChild('mainbill', {static: false}) mainbill: ElementRef;
-  constructor(private datePipe: DatePipe, private numberToWords: NumberToWordsPipe) { }
+  constructor(private datePipe: DatePipe, private numberToWords: NumberToWordsPipe, private fb: FormBuilder) { }
+  billGenerateForm: FormGroup;
+
   shopDetails: any = [];
   gstnovalue: string;
   billdate = '';
@@ -24,6 +32,7 @@ export class BillgenerateComponent implements OnInit {
   shopnameVal = [];
   shoppaddress = [];
   serialno = '';
+  modetransport: string;
   rate: number;
   noofbag = '';
   unit: number;
@@ -31,6 +40,15 @@ export class BillgenerateComponent implements OnInit {
   modeoftransport = '';
   gstvaluefind: number;
   ngOnInit() {
+    this.billGenerateForm = this.fb.group({
+      serialno: ['', Validators.required],
+      shopname: ['', Validators.required],
+      modetransport: ['', Validators.required],
+      billdate: ['', Validators.required],
+      noofbag: ['', Validators.required],
+      unit: ['', Validators.required],
+      rate: ['', Validators.required]
+    });
     this.shopDetails = [
       {
         name: 'SUPREME FIREWORKS FACTORY',
@@ -120,7 +138,17 @@ export class BillgenerateComponent implements OnInit {
   getModeTransport(args) {
     this.modeoftransport = args.target.value;
   }
+  get f() {
+    return this.billGenerateForm.controls;
+  }
+
   exportAsPDF(pdfOption: any) {
+  this.serialno = this.billGenerateForm.controls.serialno.value;
+  this.modetransport = this.billGenerateForm.controls.modetransport.value;
+  this.billdate = this.billGenerateForm.controls.billdate.value;
+  this.noofbag = this.billGenerateForm.controls.noofbag.value;
+  this.unit = this.billGenerateForm.controls.unit.value;
+  this.rate = this.billGenerateForm.controls.rate.value;
   this.billNewdate = this.datePipe.transform(this.billdate, 'dd.MM.y');
   this.billNewdateFile = this.datePipe.transform(this.billdate, 'ddMMy');
   this.totalvalue = this.unit * this.rate;
@@ -505,6 +533,7 @@ export class BillgenerateComponent implements OnInit {
       },
       tableExample: {
         fontSize: 10,
+        bold: true
       },
       textileStreet: {
         alignment: 'center'
