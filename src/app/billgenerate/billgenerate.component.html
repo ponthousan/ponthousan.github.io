@@ -8,7 +8,7 @@
           <label for="serialno">Bill No</label>
           <input type="text" name="serialno" class="form-control" value="" formControlName="serialno" />
           <div *ngIf="bform.submitted && f.serialno.errors" class="text-danger">
-            <div *ngIf="f.serialno.errors.required">Serial No is required</div>
+            <div *ngIf="f.serialno.errors.required">Bill No is required</div>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
           <br />
           <p-calendar formControlName="billdate" dateFormat="dd.mm.yy"></p-calendar>
           <div *ngIf="bform.submitted && f.billdate.errors" class="text-danger">
-            <div *ngIf="f.billdate.errors.required">Mode Of Transport is required</div>
+            <div *ngIf="f.billdate.errors.required">Bill Date is required</div>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
           <label for="noofbag">No Of Bag</label>
           <input type="text" name="noofbag" class="form-control" value="" formControlName="noofbag" />
           <div *ngIf="bform.submitted && f.noofbag.errors" class="text-danger">
-            <div *ngIf="f.noofbag.errors.required">Mode Of Transport is required</div>
+            <div *ngIf="f.noofbag.errors.required">No of bag is required</div>
           </div>
         </div>
       </div>
@@ -65,7 +65,7 @@
           <label for="unit">Unit</label>
           <input type="text" name="unit" class="form-control" value="" formControlName="unit" />
           <div *ngIf="bform.submitted && f.unit.errors" class="text-danger">
-            <div *ngIf="f.unit.errors.required">Mode Of Transport is required</div>
+            <div *ngIf="f.unit.errors.required">No Unit is required</div>
           </div>
         </div>
       </div>
@@ -74,7 +74,7 @@
           <label for="rate">Rate</label>
           <input type="text" name="rate" class="form-control" value="" formControlName="rate" />
           <div *ngIf="bform.submitted && f.rate.errors" class="text-danger">
-            <div *ngIf="f.rate.errors.required">Mode Of Transport is required</div>
+            <div *ngIf="f.rate.errors.required">Rate is required</div>
           </div>
         </div>
       </div>
