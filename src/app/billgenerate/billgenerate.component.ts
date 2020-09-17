@@ -19,7 +19,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 })
 
 export class BillgenerateComponent implements OnInit {
-  @ViewChild('mainbill', {static: false}) mainbill: ElementRef;
+  @ViewChild('mainbill') mainbill: ElementRef;
   constructor(private datePipe: DatePipe, private numberToWords: NumberToWordsPipe, private fb: FormBuilder) { }
   billGenerateForm: FormGroup;
 
